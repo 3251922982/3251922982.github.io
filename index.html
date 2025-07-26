@@ -823,21 +823,27 @@
       document.getElementById('bgm').play();
       document.getElementById('playBtn').style.display = 'none';
     }
-    // 恋爱计时器功能
+    // 恋爱计时器功能 - 优化版本
+    const startDate = new Date(2025, 3, 5); // 缓存开始日期
+    let loveTimeElement;
+    
+    // 等待DOM加载完成后获取元素
+    document.addEventListener('DOMContentLoaded', function() {
+      loveTimeElement = document.getElementById('loveTime');
+      // 立即更新一次
+      updateLoveTimer();
+    });
+    
     function updateLoveTimer() {
-      // 注意：月份是0基，3代表4月
-      const startDate = new Date(2025, 3, 5);
       const now = new Date();
-      let diffTime = now - startDate;
-      let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      if (diffDays < 0) diffDays = 0;
-      document.getElementById('loveTime').textContent = `${diffDays}天`;
+      const diffTime = now - startDate;
+      const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+      loveTimeElement.textContent = `${diffDays}天`;
     }
 
     window.onload = function() {
-      // 初始化恋爱计时器
-      updateLoveTimer();
-      setInterval(updateLoveTimer, 1000); // 每秒更新一次
+      // 每分钟更新一次恋爱计时器，减少性能消耗
+      setInterval(updateLoveTimer, 60000);
       
       setTimeout(autoScroll, 1000);
       // 监听鼠标滚动和触摸滑动
