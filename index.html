@@ -161,7 +161,8 @@
     .img-card.ninth img:hover,
     .img-card.tenth img:hover,
     .img-card.eleventh img:hover,
-    .img-card.twelfth img:hover {
+    .img-card.twelfth img:hover,
+    .img-card.thirteenth img:hover {
       transform: translateX(-20px) rotate(-2deg) scale(1.06);
     }
     .art-container {
@@ -365,6 +366,13 @@
     .img-card.twelfth img {
       transform: translateX(-20px) rotate(-2deg);
     }
+    .img-card.thirteenth {
+      transform: rotate(4deg) scale(1.02);
+      box-shadow: 0 8px 32px rgba(182, 225, 255, 0.18), 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .img-card.thirteenth img {
+      transform: translateX(-20px) rotate(-2deg);
+    }
     @media (max-width: 900px) {
       .img-list {
         max-width: 600px;
@@ -493,6 +501,12 @@
       .img-card.twelfth {
         transform: rotate(-3deg) scale(1.02);
       }
+      .img-card.thirteenth img {
+        transform: translateX(-10px) rotate(-1deg);
+      }
+      .img-card.thirteenth {
+        transform: rotate(3deg) scale(1.02);
+      }
       .img-card.second img:hover,
       .img-card.third img:hover,
       .img-card.fourth img:hover,
@@ -503,7 +517,8 @@
       .img-card.ninth img:hover,
       .img-card.tenth img:hover,
       .img-card.eleventh img:hover,
-      .img-card.twelfth img:hover {
+      .img-card.twelfth img:hover,
+      .img-card.thirteenth img:hover {
         transform: translateX(-10px) rotate(-1deg) scale(1.06);
       }
     }
@@ -784,6 +799,28 @@
         </svg>
       </div>
     </div>
+    <div class="romantic-sep">❤</div>
+    <div class="img-card thirteenth"><img src="img/fc00bd2a696e1952e73098c1cb5c00f1.jpg" />
+      <div class="img-deco">💖</div>
+      <div class="img-bottom">
+        <svg width="100%" height="44" viewBox="0 0 400 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wave25" x1="0" y1="0" x2="400" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ffe0f0"/>
+              <stop offset="1" stop-color="#c9e7ff"/>
+            </linearGradient>
+            <linearGradient id="wave26" x1="0" y1="0" x2="400" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f9e7e7"/>
+              <stop offset="1" stop-color="#e0f7fa"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 24 Q100 44 200 24 T400 24 V44 H0Z" fill="url(#wave25)"/>
+          <path d="M0 34 Q100 14 200 34 T400 34 V44 H0Z" fill="url(#wave26)" opacity="0.7"/>
+          <text x="340" y="32" font-size="18" fill="#ffb6c1">★</text>
+          <text x="30" y="38" font-size="18" fill="#ff69b4">❤</text>
+        </svg>
+      </div>
+    </div>
   </div>
   <div class="art-container">
     <span class="envelope-deco">✉️</span>
@@ -813,7 +850,8 @@
         'img/微信图片_20250708230439.jpg',
         'img/微信图片_20250708230427.jpg',
         'img/微信图片_20250725210718.jpg',
-        'img/微信图片_20250726083755.jpg'
+        'img/微信图片_20250726083755.jpg',
+        'img/fc00bd2a696e1952e73098c1cb5c00f1.jpg'
       ];
       
       // 预加载前几张图片
