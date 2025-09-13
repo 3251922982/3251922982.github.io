@@ -320,6 +320,7 @@
       user-select: none;
       filter: drop-shadow(0 2px 8px rgba(255,182,193,0.18));
       background: linear-gradient(90deg, #ffb6c1 0%, #a1c4fd 100%);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: sep-pop 1.8s cubic-bezier(.4,2,.6,1) infinite alternate;
@@ -372,6 +373,181 @@
     }
     .img-card.thirteenth img {
       transform: translateX(-20px) rotate(-2deg);
+    }
+    /* 底板样式 */
+    .base-plate {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 60px auto;
+      z-index: 1;
+    }
+    .base-plate-bg {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.95) 50%, rgba(240,248,255,0.95) 100%);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(255, 182, 193, 0.2), 0 5px 15px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      overflow: visible;
+      min-height: 400px;
+      height: 400px;
+    }
+    .base-plate-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hearts" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" font-size="12" fill="%23ffb6c1" opacity="0.1">♥</text></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>') repeat;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .base-plate-img {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+      transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
+    }
+    .base-plate-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .base-plate-img:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 35px rgba(255, 182, 193, 0.4);
+    }
+    .base-plate-img:hover img {
+      transform: scale(1.05);
+    }
+    .base-plate-img.top-left {
+      top: 20px;
+      left: 20px;
+      transform: rotate(-8deg);
+    }
+    .base-plate-img.center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(3deg);
+    }
+    .base-plate-img.bottom-right {
+      bottom: 20px;
+      right: 20px;
+      transform: rotate(-5deg);
+    }
+    /* 装饰元素 */
+    .img-sparkle {
+      position: absolute;
+      font-size: 1.2em;
+      pointer-events: none;
+      user-select: none;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    .sparkle-1 {
+      top: -15px;
+      right: -15px;
+      animation-delay: 0s;
+    }
+    .sparkle-2 {
+      bottom: -10px;
+      left: -10px;
+      animation-delay: 1s;
+    }
+    .sparkle-3 {
+      top: -15px;
+      left: -15px;
+      animation-delay: 0.5s;
+    }
+    .sparkle-4 {
+      bottom: -10px;
+      right: -10px;
+      animation-delay: 1.5s;
+    }
+    .sparkle-5 {
+      top: -8px;
+      left: -8px;
+      animation-delay: 0.8s;
+    }
+    .sparkle-6 {
+      bottom: -12px;
+      right: -12px;
+      animation-delay: 1.2s;
+    }
+    @keyframes sparkle {
+      0%, 100% { 
+        opacity: 0.6; 
+        transform: scale(1) rotate(0deg); 
+      }
+      50% { 
+        opacity: 1; 
+        transform: scale(1.3) rotate(180deg); 
+      }
+    }
+    .base-plate-decorations {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .deco-heart, .deco-flower, .deco-butterfly {
+      position: absolute;
+      font-size: 1.5em;
+      animation: float 3s ease-in-out infinite;
+    }
+    .heart-1 {
+      top: 5%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+    .heart-2 {
+      top: 25%;
+      right: 15%;
+      animation-delay: 1s;
+    }
+    .heart-3 {
+      bottom: 15%;
+      left: 25%;
+      animation-delay: 2s;
+    }
+    .flower-1 {
+      top: 35%;
+      right: 8%;
+      animation-delay: 0.5s;
+    }
+    .flower-2 {
+      bottom: 30%;
+      right: 30%;
+      animation-delay: 1.5s;
+    }
+    .butterfly-1 {
+      top: 65%;
+      left: 8%;
+      animation-delay: 0.8s;
+    }
+    .butterfly-2 {
+      top: 20%;
+      left: 55%;
+      animation-delay: 2.2s;
+    }
+    @keyframes float {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.7; 
+      }
+      50% { 
+        transform: translateY(-10px) rotate(10deg); 
+        opacity: 1; 
+      }
     }
     @media (max-width: 900px) {
       .img-list {
@@ -520,6 +696,70 @@
       .img-card.twelfth img:hover,
       .img-card.thirteenth img:hover {
         transform: translateX(-10px) rotate(-1deg) scale(1.06);
+      }
+      /* 底板移动端适配 */
+      .base-plate {
+        max-width: 90%;
+        margin: 40px auto;
+      }
+      .base-plate-bg {
+        padding: 25px;
+        border-radius: 20px;
+        min-height: 300px;
+        height: 300px;
+      }
+      .base-plate-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
+      }
+      .base-plate-img.top-left {
+        top: 15px;
+        left: 15px;
+        transform: rotate(-5deg);
+      }
+      .base-plate-img.center {
+        transform: translate(-50%, -50%) rotate(2deg);
+      }
+      .base-plate-img.bottom-right {
+        bottom: 15px;
+        right: 15px;
+        transform: rotate(-3deg);
+      }
+      .img-sparkle {
+        font-size: 1em;
+      }
+      .deco-heart, .deco-flower, .deco-butterfly {
+        font-size: 1.2em;
+      }
+      /* 移动端装饰元素位置调整 */
+      .heart-1 {
+        top: 3%;
+        left: 3%;
+      }
+      .heart-2 {
+        top: 30%;
+        right: 12%;
+      }
+      .heart-3 {
+        bottom: 20%;
+        left: 30%;
+      }
+      .flower-1 {
+        top: 40%;
+        right: 5%;
+      }
+      .flower-2 {
+        bottom: 35%;
+        right: 35%;
+      }
+      .butterfly-1 {
+        top: 70%;
+        left: 5%;
+      }
+      .butterfly-2 {
+        top: 25%;
+        left: 60%;
       }
     }
   </style>
@@ -819,6 +1059,35 @@
           <text x="340" y="32" font-size="18" fill="#ffb6c1">★</text>
           <text x="30" y="38" font-size="18" fill="#ff69b4">❤</text>
         </svg>
+      </div>
+    </div>
+    <div class="romantic-sep">🎨</div>
+    <div class="base-plate">
+      <div class="base-plate-bg">
+        <div class="base-plate-img top-left">
+          <img src="img/a78bbeb12f73de7a5a5e875f8053ba32.jpg" alt="左上角图片" />
+          <div class="img-sparkle sparkle-1">✨</div>
+          <div class="img-sparkle sparkle-2">⭐</div>
+        </div>
+        <div class="base-plate-img center">
+          <img src="img/28c5ba6f236317e348528fd8cfb1123e.jpg" alt="中间图片" />
+          <div class="img-sparkle sparkle-3">💫</div>
+          <div class="img-sparkle sparkle-4">🌟</div>
+        </div>
+        <div class="base-plate-img bottom-right">
+          <img src="img/7de35ecc7ae206ce24cb424b6ca877af.jpg" alt="右下角图片" />
+          <div class="img-sparkle sparkle-5">✨</div>
+          <div class="img-sparkle sparkle-6">⭐</div>
+        </div>
+        <div class="base-plate-decorations">
+          <div class="deco-heart heart-1">💖</div>
+          <div class="deco-heart heart-2">💕</div>
+          <div class="deco-heart heart-3">💗</div>
+          <div class="deco-flower flower-1">🌸</div>
+          <div class="deco-flower flower-2">🌺</div>
+          <div class="deco-butterfly butterfly-1">🦋</div>
+          <div class="deco-butterfly butterfly-2">🦋</div>
+        </div>
       </div>
     </div>
   </div>
